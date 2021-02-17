@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Actions, Effect, ofType } from '@ngrx/effects';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 import { PaymentService } from '../services/payment.service';
@@ -11,7 +11,7 @@ import * as CreditCardActions from '../actions/credit-card.actions'
 @Injectable()
 export class CreditCardEffects {
 
-    @Effect() creditCard$ = this.actions$
+  @Effect() creditCard$ = this.actions$
     .pipe(
       ofType<SubmitCreditCard>(CreditCardActions.SUBMIT_CREDIT_CARD),
       mergeMap(
@@ -21,7 +21,7 @@ export class CreditCardEffects {
             catchError(error => of(new SubmitCreditCardFailureAction(error)))
           )
       )
-  )
-    constructor(private actions$: Actions, private paymentService: PaymentService){}
+    )
+  constructor(private actions$: Actions, private paymentService: PaymentService) { }
 
 }
