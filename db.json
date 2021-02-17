@@ -1,0 +1,9 @@
+{
+  "card": {
+    "amount": 11111,
+    "cardHolder": "wjwjwjw",
+    "cardNumber": "2200 2030 3333 33333",
+    "expirationDate": "2021-07",
+    "cvv": "111"
+  }
+}

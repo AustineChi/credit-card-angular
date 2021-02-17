@@ -1,0 +1,21 @@
+<div class="container">
+  <button (click)="navigate()" type="button" class="btn btn-success">
+    Make Payment
+  </button>
+  <div class="box" [class.loading]="(loading$ | async)" *ngIf="!(error$ | async); else error">
+    {{ creditCard | async | json }}
+  
+
+  </div>
+
+  <ng-template #error>
+    <h2>{{(error$ | async)?.message}}</h2>
+  </ng-template>
+
+  <div class="view-container">
+
+    <router-outlet></router-outlet>
+
+    <div ng-view class="view-frame"></div>
+  </div>
+</div>
