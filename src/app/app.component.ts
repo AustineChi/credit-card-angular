@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { CreditCardModel } from './models/credit-card.interface';
 import { AppState } from './app.state';
 
@@ -12,25 +11,29 @@ import { AppState } from './app.state';
 })
 export class AppComponent implements OnInit {
   title = 'credit app payment';
-  creditCard: Observable<CreditCardModel>;
-  loading$: Observable<Boolean>;
-  error$: Observable<Error>
-
+  state: any;
+  creditCard: CreditCardModel;
+  error: any;
+  loading: boolean
 
 
   constructor(private router: Router, private store: Store<AppState>) {
 
   }
 
-
   ngOnInit() {
-    this.creditCard = this.store.select(store => store.creditCard);
-    this.loading$ = this.store.select(store => store.loading);
-    this.error$ = this.store.select(store => store.error);
-  }
+    this.state = this.store.select(store => store.creditCard);
+    this.state.subscribe(data => {
+      this.creditCard = data.creditCard;
+      this.loading = data.loading$;
+      this.error = data.error$
 
+    });
+  }
 
   navigate() {
     this.router.navigate(['/payment']);
   }
+
 }
+

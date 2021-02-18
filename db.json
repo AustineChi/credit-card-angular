@@ -1,9 +1,9 @@
 {
   "card": {
-    "amount": 11111,
-    "cardHolder": "wjwjwjw",
-    "cardNumber": "2200 2030 3333 33333",
-    "expirationDate": "2021-07",
-    "cvv": "111"
+    "amount": 200,
+    "cardHolder": "ueieieioe",
+    "cardNumber": "2020 2200 2222 22222",
+    "expirationDate": "2023-07",
+    "cvv": "123"
   }
 }

@@ -17,14 +17,14 @@ const initialState: AppState = {
     error: undefined
 }
 
-export function reducer(state: AppState[] = [initialState], action: CreditCardActions.Actions) {
-
+export function reducer(state: AppState = initialState, action: CreditCardActions.Actions) {
     switch (action.type) {
 
         case CreditCardActions.SUBMIT_CREDIT_CARD:
             return {
                 ...state,
-                loading: true
+                loading: true,
+                creditCard: {}
             }
         case CreditCardActions.SUBMIT_CREDIT_CARD_SUCCESS:
             return {
@@ -38,7 +38,7 @@ export function reducer(state: AppState[] = [initialState], action: CreditCardAc
                 ...state,
                 error: action.payload,
                 loading: false
-              };
+            };
         default:
             return state;
     }
